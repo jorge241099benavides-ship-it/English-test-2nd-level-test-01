@@ -1,4 +1,4 @@
-// URL de tu Web App de Google Apps Script (Reemplázala con la tuya generada al implementar el Sheets)
+// URL de tu Web App de Google Apps Script
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxON7v5c6apN175iWwr6dM9l4p0B9zhHvdbpsF4tBE_fjqvjKjrpQzuThIQdyKeTenM4A/exec";
 
 let examActive = true;
@@ -29,7 +29,14 @@ window.addEventListener("blur", () => {
     handleCheating();
 });
 
-// Procesamiento del formulario de examen
+// BLOQUEO DE LA TECLA ENTER: Evita que el formulario se envíe accidentalmente
+document.getElementById('exam-form').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+    }
+});
+
+// Procesamiento del formulario de examen (Solo se acciona con el botón "Enviar Examen")
 document.getElementById('exam-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -87,7 +94,7 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
                 isCorrect = true;
             }
         } else if (type === 'multitext') {
-            // Caso especial con múltiples inputs (ej. Section III B pregunta 3: did | study)
+            // Caso especial con múltiples inputs
             const inputFields = q.querySelectorAll('input[type="text"]');
             const parts = correctAns.split('|');
             let studentParts = [];
@@ -143,11 +150,6 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
 });
 
 function sendDataToSheets(name, score, answers) {
-    if (GOOGLE_SCRIPT_URL === "TU_URL_DE_APPS_SCRIPT_AQUI" || !GOOGLE_SCRIPT_URL) {
-        console.warn("No se ha configurado la URL de Google Apps Script.");
-        return;
-    }
-
     const payload = {
         name: name,
         score: score,
