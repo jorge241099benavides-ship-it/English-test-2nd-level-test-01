@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+#exam-container {
+    max-width: 850px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    color: #1a365d;
+    margin-bottom: 5px;
+    font-size: 26px;
+}
+
+.exam-info {
+    text-align: center;
+    color: #718096;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+h2 {
+    background-color: #2b6cb0;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #2d3748;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 5px;
+}
+
+#student-info {
+    background-color: #ebf8ff;
+    border-left: 5px solid #3182ce;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+#student-info label {
+    display: block;
+    font-size: 16px;
+    color: #2b6cb0;
+    margin-bottom: 8px;
+}
+
+#student-info input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #cbd5e0;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#student-info input:focus {
+    border-color: #3182ce;
+}
+
+.warning-text {
+    font-size: 12px;
+    color: #e53e3e;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.section-block {
+    margin-bottom: 20px;
+}
+
+.question {
+    background-color: #f8fafc;
+    border: 1px solid #edf2f7;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.question p {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #2d3748;
+}
+
+.question label {
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.inline-input {
+    width: 90px;
+    padding: 4px 8px;
+    font-size: 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    color: #2b6cb0;
+}
+
+.full-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.reading-box {
+    background-color: #f7fafc;
+    border-left: 4px solid #4a5568;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #4a5568;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: #38a169;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #2f855a;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Results panel styling */
+.score-card {
+    background-color: #f0fff4;
+    border: 2px solid #38a169;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#student-name-display {
+    font-size: 18px;
+    font-weight: bold;
+    color: #276749;
+}
+
+#score-display {
+    font-size: 24px;
+    font-weight: 800;
+    color: #22543d;
+    margin-top: 5px;
+}
+
+.feedback-item {
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border-left: 5px solid;
+}
+
+.feedback-correct {
+    background-color: #f0fff4;
+    border-color: #38a169;
+}
+
+.feedback-incorrect {
+    background-color: #fff5f5;
+    border-color: #e53e3e;
+}
+
+.text-correct {
+    color: #2f855a;
+    font-weight: bold;
+}
+
+.text-incorrect {
+    color: #c53030;
+    font-weight: bold;
+}
+
+.cheating-screen {
+    text-align: center;
+    padding: 50px 20px;
+    color: #742a2a;
+    background-color: #fff5f5;
+    border: 3px dashed #e53e3e;
+    border-radius: 12px;
+    margin-top: 50px;
+}
+
+.cheating-screen h1 {
+    color: #e53e3e;
+    font-size: 32px;
+    margin-bottom: 20px;
+}

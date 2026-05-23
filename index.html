@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2ND LEVEL, 1ST ENGLISH TEST</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="exam-container">
+        <h1>2ND LEVEL, 1ST ENGLISH TEST</h1>
+        <p class="exam-info"><strong>Total Points: 100</strong></p>
+        
+        <!-- Student Information Section -->
+        <div id="student-info">
+            <label for="student-name"><strong>Full Name / Nombre Completo:</strong></label>
+            <input type="text" id="student-name" placeholder="Escribe tu nombre y apellido aquí..." required>
+            <p class="warning-text">* Este campo es obligatorio. Si sales de la pestaña o ventana del navegador, el examen se cerrará automáticamente.</p>
+        </div>
+
+        <form id="exam-form">
+            <!-- ==================== SECTION I ==================== -->
+            <div class="section-block">
+                <h2>Section I: Simple Past of "To Be" (was/were) — 30 Points</h2>
+                
+                <h3>A. Multiple Choice: Choose the correct option. (5 points, 1 pt each)</h3>
+                <div class="question" data-type="radio" data-ans="a" data-pts="1">
+                    <p>1. I ___ at home yesterday.</p>
+                    <label><input type="radio" name="i_a1" value="a"> a) was</label><br>
+                    <label><input type="radio" name="i_a1" value="b"> b) were</label><br>
+                    <label><input type="radio" name="i_a1" value="c"> c) am</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="b" data-pts="1">
+                    <p>2. She ___ very happy about the news.</p>
+                    <label><input type="radio" name="i_a2" value="a"> a) weren't</label><br>
+                    <label><input type="radio" name="i_a2" value="b"> b) wasn't</label><br>
+                    <label><input type="radio" name="i_a2" value="c"> c) isn't</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="b" data-pts="1">
+                    <p>3. ___ they in Granada last weekend?</p>
+                    <label><input type="radio" name="i_a3" value="a"> a) Was</label><br>
+                    <label><input type="radio" name="i_a3" value="b"> b) Were</label><br>
+                    <label><input type="radio" name="i_a3" value="c"> c) Are</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="b" data-pts="1">
+                    <p>4. We ___ tired after the game.</p>
+                    <label><input type="radio" name="i_a4" value="a"> a) was</label><br>
+                    <label><input type="radio" name="i_a4" value="b"> b) were</label><br>
+                    <label><input type="radio" name="i_a4" value="c"> c) be</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="a" data-pts="1">
+                    <p>5. The movie ___ good.</p>
+                    <label><input type="radio" name="i_a5" value="a"> a) was</label><br>
+                    <label><input type="radio" name="i_a5" value="b"> b) were</label><br>
+                    <label><input type="radio" name="i_a5" value="c) "> c) wasn't</label>
+                </div>
+
+                <h3>B. Fill in the blanks with "was", "were", "wasn't", or "weren't". (5 points, 1 pt each)</h3>
+                <div class="question" data-type="text" data-ans="was" data-pts="1">
+                    <p>1. Carlos <input type="text" class="inline-input"> at the park yesterday. (affirmative)</p>
+                </div>
+                <div class="question" data-type="text" data-ans="weren't" data-pts="1">
+                    <p>2. My parents <input type="text" class="inline-input"> at work; they stayed home. (negative)</p>
+                </div>
+                <div class="question" data-type="text" data-ans="were" data-pts="1">
+                    <p>3. <input type="text" class="inline-input"> you a good student in high school? (question)</p>
+                </div>
+                <div class="question" data-type="text" data-ans="was" data-pts="1">
+                    <p>4. It <input type="text" class="inline-input"> raining this morning. (affirmative)</p>
+                </div>
+                <div class="question" data-type="text" data-ans="weren't" data-pts="1">
+                    <p>5. The dogs <input type="text" class="inline-input"> hungry yet. (negative)</p>
+                </div>
+
+                <h3>C. Sentence Correction: Find the mistake and write the correct sentence. (5 points, 1 pt each)</h3>
+                <div class="question" data-type="text" data-ans="They were at the market." data-pts="1">
+                    <p>1. They was at the market.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="Were you late for class?" data-pts="1">
+                    <p>2. Was you late for class?</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="I wasn't sad." data-pts="1">
+                    <p>3. I weren't sad.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="We were good friends." data-pts="1">
+                    <p>4. We was good friends.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="The weather was hot yesterday." data-pts="1">
+                    <p>5. The weather were hot yesterday.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+
+                <h3>D. Unscramble the sentences. (5 points, 1 pt each)</h3>
+                <div class="question" data-type="text" data-ans="She was sick yesterday." data-alt="Yesterday she was sick." data-pts="1">
+                    <p>1. was / yesterday / she / sick / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="Were they at school?" data-pts="1">
+                    <p>2. at / were / they / school / ?</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="I was not at home." data-alt="I wasn't at home." data-pts="1">
+                    <p>3. home / I / not / was / at / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="The test was very easy." data-pts="1">
+                    <p>4. very / the / was / test / easy / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="Were you tired last night?" data-pts="1">
+                    <p>5. tired / you / last / were / night / ?</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+
+                <h3>E. Reading Comprehension (10 points, 2 pts each)</h3>
+                <div class="reading-box">
+                    <p><em>"Yesterday was a great day for Maria. She was in Masaya with her family. The weather was sunny and hot. Her brothers were very excited because they were at the artisan market. Her mother was happy, but her father was tired."</em></p>
+                </div>
+                <div class="question" data-type="text" data-ans="She was in Masaya." data-alt="Maria was in Masaya." data-pts="2">
+                    <p>1. Where was Maria yesterday?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="It was sunny and hot." data-alt="The weather was sunny and hot." data-pts="2">
+                    <p>2. How was the weather?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="Because they were at the artisan market." data-pts="2">
+                    <p>3. Why were her brothers excited?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="No, she wasn't." data-alt="No, she was happy." data-pts="2">
+                    <p>4. Was her mother tired?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="No, it wasn't." data-alt="No, it was a great day." data-pts="2">
+                    <p>5. Was it a bad day for Maria?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+            </div>
+
+            <!-- ==================== SECTION II ==================== -->
+            <div class="section-block">
+                <h2>Section II: There was / There were — 30 Points</h2>
+                
+                <h3>A. Multiple Choice: Choose the correct option. (5 points, 1 pt each)</h3>
+                <div class="question" data-type="radio" data-ans="b" data-pts="1">
+                    <p>1. ___ a lot of people at the party.</p>
+                    <label><input type="radio" name="ii_a1" value="a"> a) There was</label><br>
+                    <label><input type="radio" name="ii_a1" value="b"> b) There were</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="a" data-pts="1">
+                    <p>2. ___ a dog in the street?</p>
+                    <label><input type="radio" name="ii_a2" value="a"> a) Was there</label><br>
+                    <label><input type="radio" name="ii_a2" value="b"> b) Were there</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="b" data-pts="1">
+                    <p>3. ___ any apples in the fridge.</p>
+                    <label><input type="radio" name="ii_a3" value="a"> a) There wasn't</label><br>
+                    <label><input type="radio" name="ii_a3" value="b"> b) There weren't</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="a" data-pts="1">
+                    <p>4. ___ a good movie on TV last night.</p>
+                    <label><input type="radio" name="ii_a4" value="a"> a) There was</label><br>
+                    <label><input type="radio" name="ii_a4" value="b"> b) There were</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="b" data-pts="1">
+                    <p>5. How many students ___ in the classroom?</p>
+                    <label><input type="radio" name="ii_a5" value="a"> a) was there</label><br>
+                    <label><input type="radio" name="ii_a5" value="b"> b) were there</label>
+                </div>
+
+                <h3>B. Fill in the blanks with "there was", "there were", "was there", "were there", "there wasn't", or "there weren't". (5 points, 1 pt each)</h3>
+                <div class="question" data-type="text" data-ans="there were" data-pts="1">
+                    <p>1. <input type="text" class="inline-input" style="width: 120px;"> many cars in Managua today. (affirmative)</p>
+                </div>
+                <div class="question" data-type="text" data-ans="there was" data-pts="1">
+                    <p>2. <input type="text" class="inline-input" style="width: 120px;"> a big storm last night. (affirmative)</p>
+                </div>
+                <div class="question" data-type="text" data-ans="was there" data-pts="1">
+                    <p>3. <input type="text" class="inline-input" style="width: 120px;"> any milk in the glass? (question)</p>
+                </div>
+                <div class="question" data-type="text" data-ans="there were" data-pts="1">
+                    <p>4. <input type="text" class="inline-input" style="width: 120px;"> three birds in the tree. (affirmative)</p>
+                </div>
+                <div class="question" data-type="text" data-ans="there weren't" data-pts="1">
+                    <p>5. <input type="text" class="inline-input" style="width: 120px;"> any problems with the homework. (negative)</p>
+                </div>
+
+                <h3>C. Sentence Correction: Find the mistake and write the correct sentence. (5 points, 1 pt each)</h3>
+                <div class="question" data-type="text" data-ans="There were many trees in the park." data-pts="1">
+                    <p>1. There was many trees in the park.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="Were there two cats?" data-pts="1">
+                    <p>2. Was there two cats?</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="There wasn't a computer on the desk." data-pts="1">
+                    <p>3. There weren't a computer on the desk.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="There was a good song on the radio." data-pts="1">
+                    <p>4. There were a good song on the radio.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="Was there a lot of traffic?" data-pts="1">
+                    <p>5. Were there a lot of traffic?</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+
+                <h3>D. Unscramble the sentences. (5 points, 1 pt each)</h3>
+                <div class="question" data-type="text" data-ans="There was a spider in the room." data-pts="1">
+                    <p>1. a / in / there / was / spider / room / the / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="Were there many people?" data-pts="1">
+                    <p>2. there / many / were / people / ?</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="There wasn't any coffee." data-pts="1">
+                    <p>3. wasn't / any / there / coffee / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="There were two good restaurants." data-pts="1">
+                    <p>4. restaurants / there / good / were / two / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="Was there a test yesterday?" data-pts="1">
+                    <p>5. a / there / test / was / yesterday / ?</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+
+                <h3>E. Reading Comprehension (10 points, 2 pts each)</h3>
+                <div class="reading-box">
+                    <p><em>"Last year, there was a big festival in León. There were many colorful dances and there was delicious food. There weren't any cars in the center of the city because there were too many people walking. At night, there was a beautiful firework show."</em></p>
+                </div>
+                <div class="question" data-type="text" data-ans="It was in León." data-alt="There was a festival in León." data-pts="2">
+                    <p>1. Where was the festival?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="No, there weren't." data-alt="No, there were no cars." data-pts="2">
+                    <p>2. Were there cars in the center of the city?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="Yes, there was." data-alt="Yes, there was a firework show." data-pts="2">
+                    <p>3. Was there a firework show?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="There was delicious food." data-pts="2">
+                    <p>4. What kind of food was there?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="Because there were too many people walking." data-pts="2">
+                    <p>5. Why weren't there any cars in the center?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+            </div>
+
+            <!-- ==================== SECTION III ==================== -->
+            <div class="section-block">
+                <h2>Section III: Simple Past (Regular & Irregular Verbs) — 40 Points</h2>
+                
+                <h3>A. Multiple Choice: Choose the correct option. (10 points, 2 pts each)</h3>
+                <div class="question" data-type="radio" data-ans="b" data-pts="2">
+                    <p>1. I ___ pizza for dinner last night.</p>
+                    <label><input type="radio" name="iii_a1" value="a"> a) eated</label><br>
+                    <label><input type="radio" name="iii_a1" value="b"> b) ate</label><br>
+                    <label><input type="radio" name="iii_a1" value="c"> c) eat</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="a" data-pts="2">
+                    <p>2. They ___ baseball on Sunday.</p>
+                    <label><input type="radio" name="iii_a2" value="a"> a) played</label><br>
+                    <label><input type="radio" name="iii_a2" value="b"> b) plaied</label><br>
+                    <label><input type="radio" name="iii_a2" value="c"> c) play</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="c" data-pts="2">
+                    <p>3. She ___ to the beach last vacation.</p>
+                    <label><input type="radio" name="iii_a3" value="a"> a) goes</label><br>
+                    <label><input type="radio" name="iii_a3" value="b"> b) goed</label><br>
+                    <label><input type="radio" name="iii_a3" value="c"> c) went</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="b" data-pts="2">
+                    <p>4. ___ you finish your homework?</p>
+                    <label><input type="radio" name="iii_a4" value="a"> a) Do</label><br>
+                    <label><input type="radio" name="iii_a4" value="b"> b) Did</label><br>
+                    <label><input type="radio" name="iii_a4" value="c"> c) Was</label>
+                </div>
+                <div class="question" data-type="radio" data-ans="b" data-pts="2">
+                    <p>5. We didn't ___ TV yesterday.</p>
+                    <label><input type="radio" name="iii_a5" value="a"> a) watched</label><br>
+                    <label><input type="radio" name="iii_a5" value="b"> b) watch</label><br>
+                    <label><input type="radio" name="iii_a5" value="c"> c) watching</label>
+                </div>
+
+                <h3>B. Fill in the blanks: Write the verb in parentheses in the Simple Past. (10 points, 2 pts each)</h3>
+                <div class="question" data-type="text" data-ans="bought" data-pts="2">
+                    <p>1. Roberto <input type="text" class="inline-input"> (buy) a new shirt yesterday.</p>
+                </div>
+                <div class="question" data-type="text" data-ans="didn't go" data-pts="2">
+                    <p>2. They <input type="text" class="inline-input"> (not / go) to the party.</p>
+                </div>
+                <div class="question" data-type="multitext" data-ans="did|study" data-pts="2">
+                    <p>3. <input type="text" class="inline-input" style="width: 60px;"> she <input type="text" class="inline-input" style="width: 80px;"> (study) for the exam?</p>
+                </div>
+                <div class="question" data-type="text" data-ans="visited" data-pts="2">
+                    <p>4. We <input type="text" class="inline-input"> (visit) our grandparents in Estelí.</p>
+                </div>
+                <div class="question" data-type="text" data-ans="started" data-pts="2">
+                    <p>5. The class <input type="text" class="inline-input"> (start) at 8:00 AM.</p>
+                </div>
+
+                <h3>C. Sentence Correction: Find the mistake and write the correct sentence. (5 points, 1 pt each)</h3>
+                <div class="question" data-type="text" data-ans="I drank milk this morning." data-pts="1">
+                    <p>1. I drinked milk this morning.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="She didn't go to school." data-pts="1">
+                    <p>2. She didn't went to school.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="Did they play soccer?" data-pts="1">
+                    <p>3. Did they played soccer?</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="We stopped at the store." data-pts="1">
+                    <p>4. We stoped at the store.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+                <div class="question" data-type="text" data-ans="He read a book." data-pts="1">
+                    <p>5. He readed a book.</p>
+                    <input type="text" class="full-input" placeholder="Escribe la oración corregida aquí...">
+                </div>
+
+                <h3>D. Unscramble the sentences. (5 points, 1 pt each)</h3>
+                <div class="question" data-type="text" data-ans="We studied English yesterday." data-alt="Yesterday we studied English." data-pts="1">
+                    <p>1. English / studied / yesterday / we / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="Did you see the movie?" data-pts="1">
+                    <p>2. you / did / see / movie / the / ?</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="They didn't play baseball." data-pts="1">
+                    <p>3. didn't / they / baseball / play / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="I bought a new car." data-pts="1">
+                    <p>4. bought / a / I / car / new / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+                <div class="question" data-type="text" data-ans="She went to Managua." data-pts="1">
+                    <p>5. she / to / went / Managua / .</p>
+                    <input type="text" class="full-input" placeholder="Ordena la oración...">
+                </div>
+
+                <h3>E. Reading Comprehension (10 points, 2 pts each)</h3>
+                <div class="reading-box">
+                    <p><em>"Last weekend, Luis and his friends travelled to Ometepe Island. They took a ferry across the lake. They stayed in a small hostel. On Saturday, they climbed the volcano and took many pictures. They ate gallo pinto for breakfast and swam in the lake. They didn't have internet, but they loved the trip!"</em></p>
+                </div>
+                <div class="question" data-type="text" data-ans="They travelled to Ometepe Island." data-pts="2">
+                    <p>1. Where did Luis and his friends travel?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="They took a ferry." data-alt="They took a ferry across the lake." data-pts="2">
+                    <p>2. How did they cross the lake?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="They climbed the volcano and took pictures." data-alt="They climbed the volcano and took many pictures." data-pts="2">
+                    <p>3. What did they do on Saturday?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="No, they didn't." data-alt="No, they didn't have internet." data-pts="2">
+                    <p>4. Did they have internet?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+                <div class="question" data-type="text" data-ans="They ate gallo pinto." data-alt="They ate gallo pinto for breakfast." data-pts="2">
+                    <p>5. What did they eat for breakfast?</p>
+                    <input type="text" class="full-input" placeholder="Responde en una oración completa...">
+                </div>
+            </div>
+
+            <button type="submit" id="submit-btn">Enviar Examen</button>
+        </form>
+
+        <!-- Results Display Section -->
+        <div id="results-container" class="hidden">
+            <h2>Exam Results / Resultados del Examen</h2>
+            <div class="score-card">
+                <p id="student-name-display"></p>
+                <p id="score-display"></p>
+            </div>
+            <div id="correction-display"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
