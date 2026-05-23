@@ -1,5 +1,5 @@
 // URL de tu Web App de Google Apps Script (Reemplázala con la tuya generada al implementar el Sheets)
-const GOOGLE_SCRIPT_URL = "TU_URL_DE_APPS_SCRIPT_AQUI";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxON7v5c6apN175iWwr6dM9l4p0B9zhHvdbpsF4tBE_fjqvjKjrpQzuThIQdyKeTenM4A/exec";
 
 let examActive = true;
 const maxPoints = 100;
