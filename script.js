@@ -17,32 +17,28 @@ function handleCheating() {
     }
 }
 
-// Escuchar cambios de visibilidad de pestaña
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
         handleCheating();
     }
 });
 
-// Escuchar cuando el navegador pierde el foco completo
 window.addEventListener("blur", () => {
     handleCheating();
 });
 
-// BLOQUEO DE LA TECLA ENTER: Evita que el formulario se envíe accidentalmente
+// BLOQUEO DE LA TECLA ENTER
 document.getElementById('exam-form').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         e.preventDefault();
     }
 });
 
-// Procesamiento del formulario de examen (Solo se acciona con el botón "Enviar Examen")
 document.getElementById('exam-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const studentName = document.getElementById('student-name').value.trim();
 
-    // Verificación obligatoria del nombre
     if (!studentName) {
         alert("¡ERROR! Debes escribir tu Nombre Completo antes de entregar el examen.");
         document.getElementById('student-name').focus();
@@ -50,7 +46,7 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
     }
 
     if (!examActive) return;
-    examActive = false; // Desactivar el trigger anti-trampa al finalizar con éxito
+    examActive = false; 
 
     let totalPoints = 0;
     let answersLog = [];
@@ -58,7 +54,8 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
 
     const questions = document.querySelectorAll('.question');
 
-    // Función auxiliar para normalizar cadenas de texto (quitar puntos, comas, espacios dobles y minúsculas)
+    // Función auxiliar: remueve signos de puntuación, apóstrofes y espacios dobles.
+    // Esto hace que "wasn't" y "wasnt" sean evaluados igual contra la respuesta correcta.
     function normalizeText(str) {
         if (!str) return "";
         return str.toLowerCase()
@@ -70,8 +67,7 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
     questions.forEach((q, index) => {
         const type = q.getAttribute('data-type');
         const points = parseInt(q.getAttribute('data-pts'));
-        const correctAns = q.getAttribute('data-ans');
-        const altAns = q.getAttribute('data-alt') || "";
+        const correctAnsData = q.getAttribute('data-ans');
         
         let studentAns = "";
         let isCorrect = false;
@@ -79,7 +75,10 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
         if (type === 'radio') {
             const checkedRadio = q.querySelector('input[type="radio"]:checked');
             studentAns = checkedRadio ? checkedRadio.value : "";
-            if (studentAns.toLowerCase() === correctAns.toLowerCase()) {
+            
+            // Permite múltiples opciones correctas (ej. a||c)
+            const validOptions = correctAnsData.toLowerCase().split('||');
+            if (validOptions.includes(studentAns.toLowerCase())) {
                 isCorrect = true;
             }
         } else if (type === 'text') {
@@ -87,16 +86,16 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
             studentAns = inputField ? inputField.value.trim() : "";
             
             const normStudent = normalizeText(studentAns);
-            const normCorrect = normalizeText(correctAns);
-            const normAlt = normalizeText(altAns);
+            
+            // Divide las variantes posibles por "||" y normaliza cada una
+            const validOptions = correctAnsData.split('||').map(normalizeText);
 
-            if (normStudent === normCorrect || (normAlt && normStudent === normAlt)) {
+            if (validOptions.includes(normStudent)) {
                 isCorrect = true;
             }
         } else if (type === 'multitext') {
-            // Caso especial con múltiples inputs
             const inputFields = q.querySelectorAll('input[type="text"]');
-            const parts = correctAns.split('|');
+            const parts = correctAnsData.split('|'); // Mantenemos un solo pipe para multitexto
             let studentParts = [];
             let matchAll = true;
 
@@ -118,34 +117,33 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
             totalPoints += points;
         }
 
+        // Para mostrar solo la respuesta principal esperada y no confundir con los pipes
+        const displayCorrect = correctAnsData.split('||')[0].replace('|', ' / ');
+
         answersLog.push({
             q_idx: index + 1,
             student: studentAns || "Sin responder",
-            correct: correctAns + (altAns ? " O: " + altAns : ""),
+            correct: displayCorrect,
             status: isCorrect ? "Correcta" : "Incorrecta"
         });
 
-        // Crear feedback en pantalla
         correctionHTML += `
             <div class="feedback-item ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}">
                 <p><strong>Item ${index + 1}:</strong> ${q.querySelector('p').innerText}</p>
                 <p>Tu respuesta: <span class="${isCorrect ? 'text-correct' : 'text-incorrect'}">${studentAns || "No respondido"}</span></p>
-                ${!isCorrect ? `<p style="color: #2b6cb0;">Respuesta correcta: ${correctAns.replace('|', ' / ')} ${altAns ? 'ó ' + altAns : ''}</p>` : ''}
+                ${!isCorrect ? `<p style="color: #2b6cb0;">Respuesta esperada: ${displayCorrect}</p>` : ''}
             </div>
         `;
     });
 
-    // Ocultar formulario e información
     document.getElementById('exam-form').classList.add('hidden');
     document.getElementById('student-info').classList.add('hidden');
     
-    // Mostrar bloque de resultados
     document.getElementById('results-container').classList.remove('hidden');
     document.getElementById('student-name-display').innerText = `Student / Estudiante: ${studentName}`;
     document.getElementById('score-display').innerText = `Score / Puntaje: ${totalPoints} / ${maxPoints} Points`;
     document.getElementById('correction-display').innerHTML = correctionHTML;
 
-    // Enviar los datos automáticamente a Google Sheets
     sendDataToSheets(studentName, totalPoints, answersLog);
 });
 
@@ -156,7 +154,6 @@ function sendDataToSheets(name, score, answers) {
         answers: answers
     };
 
-    // Petición POST silenciosa (no-cors) al backend de Sheets
     fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
