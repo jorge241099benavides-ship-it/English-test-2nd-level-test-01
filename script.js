@@ -2,11 +2,12 @@
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxON7v5c6apN175iWwr6dM9l4p0B9zhHvdbpsF4tBE_fjqvjKjrpQzuThIQdyKeTenM4A/exec";
 
 let examActive = true;
+let ignoreBlur = false; // Bandera para evitar que la alerta active el anti-trampa
 const maxPoints = 100;
 
 // RESTRICCIÓN: Cambio de pestañas o salida del navegador (Anti-trampas)
 function handleCheating() {
-    if (examActive) {
+    if (examActive && !ignoreBlur) {
         examActive = false;
         document.body.innerHTML = `
             <div class="cheating-screen">
@@ -24,7 +25,10 @@ document.addEventListener("visibilitychange", () => {
 });
 
 window.addEventListener("blur", () => {
-    handleCheating();
+    // Solo se activa si ignoreBlur es falso
+    if (!ignoreBlur) {
+        handleCheating();
+    }
 });
 
 // BLOQUEO DE LA TECLA ENTER
@@ -40,8 +44,13 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
     const studentName = document.getElementById('student-name').value.trim();
 
     if (!studentName) {
+        // Desactivamos temporalmente el detector de trampa
+        ignoreBlur = true; 
         alert("¡ERROR! Debes escribir tu Nombre Completo antes de entregar el examen.");
         document.getElementById('student-name').focus();
+        
+        // Reactivamos el detector de trampa unos milisegundos después de cerrar la alerta
+        setTimeout(() => { ignoreBlur = false; }, 200);
         return;
     }
 
@@ -55,7 +64,6 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
     const questions = document.querySelectorAll('.question');
 
     // Función auxiliar: remueve signos de puntuación, apóstrofes y espacios dobles.
-    // Esto hace que "wasn't" y "wasnt" sean evaluados igual contra la respuesta correcta.
     function normalizeText(str) {
         if (!str) return "";
         return str.toLowerCase()
@@ -95,7 +103,7 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
             }
         } else if (type === 'multitext') {
             const inputFields = q.querySelectorAll('input[type="text"]');
-            const parts = correctAnsData.split('|'); // Mantenemos un solo pipe para multitexto
+            const parts = correctAnsData.split('|');
             let studentParts = [];
             let matchAll = true;
 
@@ -117,7 +125,6 @@ document.getElementById('exam-form').addEventListener('submit', function(e) {
             totalPoints += points;
         }
 
-        // Para mostrar solo la respuesta principal esperada y no confundir con los pipes
         const displayCorrect = correctAnsData.split('||')[0].replace('|', ' / ');
 
         answersLog.push({
